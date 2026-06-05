@@ -37,7 +37,7 @@
 html { scroll-behavior: smooth; font-size: 21px; }
 
 body {
-  font-family: 'The Seasons', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size-adjust: 0.47;
   background: var(--bg);
   color: var(--text);
@@ -46,7 +46,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'The Seasons', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   line-height: 1.2;
 }
 
@@ -155,7 +155,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-title {
-  font-family: 'The Seasons', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.9rem, 4vw, 3.4rem);
   font-weight: 700; color: white; margin-bottom: 4px;
   white-space: nowrap;
@@ -217,6 +217,21 @@ a { text-decoration: none; color: inherit; }
 .btn-white:hover { background: var(--bg); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
 .btn-green { background: var(--primary); color: white; }
+
+.btn-cta-hero {
+  background: var(--primary); color: white;
+  animation: pulse-hero 2.5s ease-in-out infinite;
+}
+.btn-cta-hero:hover {
+  background: var(--primary-dark); transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  animation: none;
+}
+
+@keyframes pulse-hero {
+  0%, 100% { box-shadow: 0 0 7px 0 rgba(255,255,255,.4); }
+  50%       { box-shadow: 0 0 22px 10px rgba(255,255,255,0); }
+}
 .btn-green:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
 .btn-wa {
@@ -234,6 +249,16 @@ a { text-decoration: none; color: inherit; }
 .btn-bk:hover { background: #002a66; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,53,128,.35); }
 
 .btn-lg { padding: 16px 36px; font-size: 1rem; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-dark);
+  border: 1.5px solid var(--primary);
+}
+.btn-outline:hover {
+  background: rgba(45,106,79,.06);
+  transform: translateY(-2px);
+}
 
 /* ─────────────────────────────
    SECTIONS
@@ -350,7 +375,7 @@ a { text-decoration: none; color: inherit; }
   text-underline-offset: 3px;
 }
 .amenity-card h3 {
-  font-family: 'The Seasons', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: .92rem; font-weight: 600;
   color: var(--primary-dark); margin-bottom: 5px;
 }
@@ -373,7 +398,7 @@ a { text-decoration: none; color: inherit; }
   border-bottom: 2px dashed rgba(116,198,157,.6);
 }
 .predio-card h3 {
-  font-family: 'The Seasons', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: .9rem; font-weight: 600;
   color: var(--primary-dark); padding: 13px 16px 4px;
 }
@@ -464,7 +489,7 @@ a { text-decoration: none; color: inherit; }
 .contact-option:last-child { border-bottom: none; }
 .contact-option-icon { font-size: 1.8rem; flex-shrink: 0; }
 .contact-option-info h3 {
-  font-family: 'The Seasons', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: .95rem; font-weight: 600;
   color: var(--primary-dark); margin-bottom: 3px;
 }
@@ -503,7 +528,7 @@ a { text-decoration: none; color: inherit; }
 .footer-brand p  { font-size: .85rem; color: rgba(255,255,255,.55); line-height: 1.75; }
 
 .footer-col h4 {
-  font-family: 'The Seasons', Georgia, serif; font-size: .8rem; font-weight: 600;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: .8rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: .1em;
   color: rgba(255,255,255,.4); margin-bottom: 16px;
 }

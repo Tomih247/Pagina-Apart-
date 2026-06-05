@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes | Apart Club San Pedro</title>
+  <meta name="description" content="Preguntas frecuentes sobre el Apart Club San Pedro — check-in, reservas, mascotas y más.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+    details.faq-item {
+      border: 1px solid rgba(45,106,79,.18);
+      border-radius: var(--radius);
+      background: var(--white);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    details.faq-item[open] { box-shadow: var(--shadow-sm); }
+
+    details.faq-item summary {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px;
+      font-size: 1rem; font-weight: 600; color: var(--primary-dark);
+      cursor: pointer; list-style: none; user-select: none;
+      gap: 16px;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      font-size: 1.1rem; color: var(--primary);
+      transition: transform .25s;
+    }
+    details.faq-item[open] .faq-chevron { transform: rotate(180deg); }
+
+    .faq-body {
+      padding: 0 24px 20px;
+      font-size: .95rem; color: var(--text-light); line-height: 1.7;
+      border-top: 1px solid rgba(45,106,79,.08);
+    }
+    .faq-body p { margin-top: 14px; }
+    .faq-body strong { color: var(--primary-dark); }
+
+    .faq-checkin {
+      display: flex; gap: 32px; flex-wrap: wrap; margin-top: 14px;
+    }
+    .faq-checkin-item { display: flex; align-items: center; gap: 10px; }
+    .faq-checkin-item i { font-size: 1.3rem; color: var(--primary); }
+    .faq-checkin-item span { font-size: .95rem; color: var(--text-light); }
+    .faq-checkin-item strong { display: block; color: var(--primary-dark); font-size: 1.05rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Apart Club San Pedro" class="nav-logo-img">
+      </a>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html"                   class="nav-link">Inicio</a>
+        <a href="galeria.html"                 class="nav-link">Galería</a>
+        <a href="contacto.html"                class="nav-link">Contacto</a>
+        <a href="preguntas-frecuentes.html"    class="nav-link active">Preguntas</a>
+        <a href="http://wa.me/543329527052" class="nav-cta" target="_blank" rel="noopener">Reservar</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <h1>Preguntas frecuentes</h1>
+    <p>Todo lo que necesitás saber antes de reservar</p>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-list">
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Cuál es el horario de check-in y check-out?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <div class="faq-checkin">
+              <div class="faq-checkin-item">
+                <i class="ph ph-sign-in"></i>
+                <span><strong>Check-in</strong> desde las 13:00 hs</span>
+              </div>
+              <div class="faq-checkin-item">
+                <i class="ph ph-sign-out"></i>
+                <span><strong>Check-out</strong> hasta las 10:00 hs</span>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Cuántas personas entran por loft?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Nuestros lofts tienen capacidad para <strong>2 a 6 personas</strong>. Ideales para parejas, familias o grupos de amigos.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Aceptan mascotas?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, somos <strong>100% pet friendly</strong>. Tu mascota es bienvenida en el predio y en el loft.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Cómo hago una reserva?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Podés reservar por <strong>WhatsApp</strong> o <strong>Instagram</strong>. Respondemos todos los días.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Los precios son fijos?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>No manejamos tarifas fijas — los precios varían según la fecha y la disponibilidad. <strong>Consultanos por WhatsApp</strong> para obtener el precio de tu estadía.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Tienen descuento entre semana?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, ofrecemos tarifas especiales para estadías de <strong>lunes a jueves</strong>. No aplica en feriados. Consultanos el precio.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿El estacionamiento tiene costo adicional?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>No, el estacionamiento está <strong>incluido sin cargo</strong> para todos los huéspedes.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Qué incluye la estadía?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>WiFi, TV + DirecTV, aire acondicionado frío/calor, estacionamiento, ropa de cama y toallas, artículos de aseo personal (shampoo, crema y jabón), infusiones (café, té, yerba y mate) y cocina completamente equipada con aceite, sal y condimentos.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Puedo usar el predio completo?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, todo el predio es de uso libre para los huéspedes: <strong>pileta</strong>, playa privada, botes laguneros, mojarreros para pesca recreativa, muelle, bajada náutica, canchas de fútbol y vóley, juegos para niños, laguna artificial y parque verde con fauna local.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Tienen bajada náutica?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, contamos con <strong>muelle y bajada náutica</strong> para quienes quieran llegar o salir con su embarcación.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Dónde están ubicados?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p><strong>Lucio Mansilla 7300, San Pedro, Buenos Aires.</strong> Podés ver la ubicación exacta en la página de <a href="contacto.html" style="color:var(--primary);">Contacto</a>.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" style="padding: 60px 0;">
+    <div class="container">
+      <div class="cta-inner fade-in" style="text-align:left;">
+        <h2>¿Quedó alguna duda?</h2>
+        <p>Escribinos y te respondemos al instante</p>
+        <div class="cta-buttons" style="margin-top: 32px; justify-content:flex-start;">
+          <a href="http://wa.me/543329527052"
+             class="btn btn-outline btn-lg" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/"
+             class="btn btn-outline btn-lg" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Apart Club San Pedro</h3>
+          <p>Río, Naturaleza y Relax</p>
+          <p>Lucio Mansilla 7300<br>San Pedro, Buenos Aires</p>
+        </div>
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <a href="index.html">Inicio</a>
+          <a href="galeria.html">Galería</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="preguntas-frecuentes.html">Preguntas</a>
+        </div>
+        <div class="footer-col">
+          <h4>Reservas</h4>
+          <a href="http://wa.me/543329527052" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.booking.com/hotel/ar/rio-naturaleza-y-relax.es-ar.html" target="_blank" rel="noopener">Booking</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">Corporativo</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Apart Club San Pedro · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+  <script src="js/scroll-animations.js"></script>
+</body>
+</html>
