@@ -34,7 +34,7 @@
   --ease:          0.7s cubic-bezier(.4,0,.2,1);
 }
 
-html { scroll-behavior: smooth; font-size: 18px; }
+html { scroll-behavior: smooth; font-size: 21px; }
 
 body {
   font-family: 'The Seasons', Georgia, serif;
@@ -147,7 +147,7 @@ a { text-decoration: none; color: inherit; }
 .hero-badge {
   display: inline-block;
   background: rgba(255,255,255,.18); color: rgba(255,255,255,.95);
-  padding: 7px 18px; border-radius: 100px;
+  padding: 7px 18px; border-radius: 100px; margin-bottom: 20px;
   font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
   margin-bottom: 28px;
   backdrop-filter: blur(10px);
@@ -157,23 +157,24 @@ a { text-decoration: none; color: inherit; }
 .hero-title {
   font-family: 'The Seasons', Georgia, serif;
   font-size: clamp(1.9rem, 4vw, 3.4rem);
-  font-weight: 700; color: white; margin-bottom: 14px;
+  font-weight: 700; color: white; margin-bottom: 4px;
   white-space: nowrap;
   text-shadow: 0 2px 20px rgba(0,0,0,.2);
 }
 
 .hero-tagline {
   font-family: 'BrittanySignature', 'Great Vibes', cursive;
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.4rem);
   font-style: normal;
   color: rgba(255,255,255,.95);
   margin-bottom: 18px;
   line-height: 1.1;
+  margin-bottom: 28px;
 }
 
 .hero-desc {
   color: rgba(255,255,255,.72); font-size: .95rem;
-  margin-bottom: 44px; letter-spacing: .04em;
+  margin-bottom: 52px; letter-spacing: .04em;
 }
 
 .hero-buttons {
