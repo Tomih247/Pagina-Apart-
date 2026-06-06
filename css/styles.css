@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap');
 
 @font-face {
   font-family: 'The Seasons';
@@ -645,10 +645,12 @@ a { text-decoration: none; color: inherit; }
 .contact-option .btn { margin-left: auto; padding: 9px 18px; font-size: .82rem; }
 
 .phone-num {
-  font-family: 'DM Mono', monospace;
-  font-weight: 400;
-  letter-spacing: .02em;
-  color: inherit;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  font-variant-numeric: lining-nums;
+  color: var(--text);
 }
 
 .map-card {
@@ -733,9 +735,29 @@ a { text-decoration: none; color: inherit; }
 /* ─────────────────────────────
    RESPONSIVE
 ───────────────────────────── */
+/* Laptop grande (1280px) — reduce espaciados, no cambia layouts */
+@media (max-width: 1280px) {
+  .loft-features       { gap: 40px; }
+  .discount-inner      { padding: 44px 40px; }
+  .wa-prefooter-inner  { gap: 40px; }
+}
+
+/* Laptop chica / tablet paisaje (1024px) */
 @media (max-width: 1024px) {
+  html { font-size: 17px; }
+
   .amenities-grid,
   .predio-grid { grid-template-columns: repeat(3,1fr); }
+
+  .loft-features { gap: 32px; }
+
+  .stats-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
+
+  .contact-grid { gap: 24px; }
+
+  .discount-inner { padding: 36px 32px; gap: 28px; }
+
+  .wa-prefooter-inner { gap: 32px; }
 }
 
 @media (max-width: 768px) {
