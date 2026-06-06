@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=DM+Mono:wght@400;500&display=swap');
 
 @font-face {
   font-family: 'The Seasons';
@@ -643,6 +643,13 @@ a { text-decoration: none; color: inherit; }
 }
 .contact-option-info p { font-size: .85rem; color: var(--text-light); }
 .contact-option .btn { margin-left: auto; padding: 9px 18px; font-size: .82rem; }
+
+.phone-num {
+  font-family: 'DM Mono', monospace;
+  font-weight: 400;
+  letter-spacing: .02em;
+  color: inherit;
+}
 
 .map-card {
   background: #282b26; border-radius: var(--radius-lg);
