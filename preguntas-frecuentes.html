@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preguntas Frecuentes | Apart Club San Pedro</title>
   <meta name="description" content="Preguntas frecuentes sobre el Apart Club San Pedro — check-in, reservas, mascotas y más.">
+  <link rel="icon" href="assets/logo.png">
   <link rel="stylesheet" href="css/styles.css">
   <style>
     .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
 
     details.faq-item {
-      border: 1px solid rgba(45,106,79,.18);
+      border: 1px solid rgba(116,198,157,.18);
       border-radius: var(--radius);
-      background: var(--white);
+      background: #282b26;
       overflow: hidden;
       transition: box-shadow .2s;
     }
@@ -21,7 +22,7 @@
     details.faq-item summary {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 24px;
-      font-size: 1rem; font-weight: 600; color: var(--primary-dark);
+      font-size: 1rem; font-weight: 600; color: var(--accent);
       cursor: pointer; list-style: none; user-select: none;
       gap: 16px;
     }
@@ -37,10 +38,10 @@
     .faq-body {
       padding: 0 24px 20px;
       font-size: .95rem; color: var(--text-light); line-height: 1.7;
-      border-top: 1px solid rgba(45,106,79,.08);
+      border-top: 1px solid rgba(116,198,157,.1);
     }
     .faq-body p { margin-top: 14px; }
-    .faq-body strong { color: var(--primary-dark); }
+    .faq-body strong { color: var(--text); }
 
     .faq-checkin {
       display: flex; gap: 32px; flex-wrap: wrap; margin-top: 14px;
@@ -48,10 +49,11 @@
     .faq-checkin-item { display: flex; align-items: center; gap: 10px; }
     .faq-checkin-item i { font-size: 1.3rem; color: var(--primary); }
     .faq-checkin-item span { font-size: .95rem; color: var(--text-light); }
-    .faq-checkin-item strong { display: block; color: var(--primary-dark); font-size: 1.05rem; }
+    .faq-checkin-item strong { display: block; color: var(--accent); font-size: 1.05rem; }
   </style>
 </head>
 <body>
+<div class="page-transition" id="pageTransition"></div>
 
   <nav class="navbar">
     <div class="nav-container">
@@ -69,7 +71,7 @@
     </div>
   </nav>
 
-  <header class="page-hero">
+  <header class="page-hero" style="background-image: url('assets/pileta3.jpg'); background-position: 70% 50%;">
     <h1>Preguntas frecuentes</h1>
     <p>Todo lo que necesitás saber antes de reservar</p>
   </header>
@@ -242,6 +244,10 @@
       <p class="footer-copy">© 2026 Apart Club San Pedro · Todos los derechos reservados</p>
     </div>
   </footer>
+
+  <a href="http://wa.me/543329527052" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+  </a>
 
   <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
   <script src="js/scroll-animations.js"></script>
