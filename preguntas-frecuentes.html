@@ -63,8 +63,8 @@
       <div class="nav-menu" id="navMenu">
         <a href="index.html"                   class="nav-link">Inicio</a>
         <a href="galeria.html"                 class="nav-link">Galería</a>
-        <a href="contacto.html"                class="nav-link">Contacto</a>
         <a href="preguntas-frecuentes.html"    class="nav-link active">Preguntas</a>
+        <a href="contacto.html"                class="nav-link">Contacto</a>
         <a href="http://wa.me/543329527052" class="nav-cta" target="_blank" rel="noopener">Reservar</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
@@ -125,23 +125,13 @@
             <i class="ph ph-caret-down faq-chevron"></i>
           </summary>
           <div class="faq-body">
-            <p>Podés reservar por <strong>WhatsApp</strong> o <strong>Instagram</strong>. Respondemos todos los días.</p>
+            <p>Podés reservar por <strong>WhatsApp</strong>. Respondemos todos los días.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in">
           <summary>
-            ¿Los precios son fijos?
-            <i class="ph ph-caret-down faq-chevron"></i>
-          </summary>
-          <div class="faq-body">
-            <p>No manejamos tarifas fijas — los precios varían según la fecha y la disponibilidad. <strong>Consultanos por WhatsApp</strong> para obtener el precio de tu estadía.</p>
-          </div>
-        </details>
-
-        <details class="faq-item fade-in">
-          <summary>
-            ¿Tienen descuento entre semana?
+            ¿Tienen promociones?
             <i class="ph ph-caret-down faq-chevron"></i>
           </summary>
           <div class="faq-body">
@@ -175,7 +165,7 @@
             <i class="ph ph-caret-down faq-chevron"></i>
           </summary>
           <div class="faq-body">
-            <p>Sí, todo el predio es de uso libre para los huéspedes: <strong>pileta</strong>, playa privada, botes laguneros, mojarreros para pesca recreativa, muelle, bajada náutica, canchas de fútbol y vóley, juegos para niños, laguna artificial y parque verde con fauna local.</p>
+            <p>Sí, todo el predio es de uso libre para los huéspedes: <strong>pileta</strong>, playita a orillas del Río, botes laguneros, mojarreros para pesca recreativa, muelle, bajada náutica, canchas de fútbol y vóley, juegos para niños, laguna artificial y parque verde con fauna local.</p>
           </div>
         </details>
 
@@ -186,6 +176,16 @@
           </summary>
           <div class="faq-body">
             <p>Sí, contamos con <strong>muelle y bajada náutica</strong> para quienes quieran llegar o salir con su embarcación.</p>
+          </div>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary>
+            ¿Tienen restaurante?
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, contamos con un <strong>restaurante que trabaja de manera independiente</strong> dentro del predio. Consultanos por WhatsApp para conocer los horarios disponibles durante tu estadía.</p>
           </div>
         </details>
 
@@ -203,17 +203,45 @@
     </div>
   </section>
 
-  <section class="section section-alt" style="padding: 60px 0;">
+
+  <section class="wa-prefooter">
     <div class="container">
-      <div class="cta-inner fade-in" style="text-align:left;">
-        <h2>¿Quedó alguna duda?</h2>
-        <p>Escribinos y te respondemos al instante</p>
-        <div class="cta-buttons" style="margin-top: 32px; justify-content:flex-start;">
-          <a href="http://wa.me/543329527052"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">Instagram</a>
+      <div class="wa-prefooter-inner">
+        <div class="wa-prefooter-text fade-in">
+          <h2>¿Quedó<br>alguna duda?</h2>
+          <p>Completá el formulario y te respondemos por WhatsApp al instante.</p>
         </div>
+        <form class="wa-form wa-form--compact fade-in">
+          <div class="wa-form-row">
+            <div class="wa-form-group">
+              <label>Nombre</label>
+              <input type="text" data-field="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="wa-form-group">
+              <label>Personas</label>
+              <select data-field="personas">
+                <option value="2 personas">2 personas</option>
+                <option value="3 personas">3 personas</option>
+                <option value="4 personas">4 personas</option>
+                <option value="5 personas">5 personas</option>
+                <option value="6 personas">6 personas</option>
+              </select>
+            </div>
+          </div>
+          <div class="wa-form-row">
+            <div class="wa-form-group">
+              <label>Llegada</label>
+              <input type="date" data-field="checkin">
+            </div>
+            <div class="wa-form-group">
+              <label>Salida</label>
+              <input type="date" data-field="checkout">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-cta-hero">
+            <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar disponibilidad
+          </button>
+        </form>
       </div>
     </div>
   </section>

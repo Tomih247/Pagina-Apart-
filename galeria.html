@@ -19,8 +19,8 @@
       <div class="nav-menu" id="navMenu">
         <a href="index.html"    class="nav-link">Inicio</a>
         <a href="galeria.html"  class="nav-link active">Galería</a>
-        <a href="contacto.html" class="nav-link">Contacto</a>
         <a href="preguntas-frecuentes.html" class="nav-link">Preguntas</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
         <a href="http://wa.me/543329527052" class="nav-cta" target="_blank" rel="noopener">Reservar</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
@@ -74,21 +74,46 @@
     </div>
   </section>
 
-  <section class="section section-alt" style="padding: 60px 0;">
+
+  <section class="wa-prefooter">
     <div class="container">
-      <div class="cta-inner fade-in" style="text-align:left;">
-        <h2>¿Te gustó lo que viste?</h2>
-        <p>Consultanos disponibilidad — respondemos por WhatsApp</p>
-        <div class="cta-buttons" style="margin-top: 32px; justify-content:flex-start;">
-          <a href="http://wa.me/543329527052"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">Instagram</a>
+      <div class="wa-prefooter-inner">
+        <div class="wa-prefooter-text fade-in">
+          <h2>¿Te gustó<br>lo que viste?</h2>
+          <p>Completá tus datos y te contactamos por WhatsApp al instante.</p>
+          <p class="corporate-email-note" style="margin-top: 20px;">Reservas corporativas: <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">rionaturalezarelax@gmail.com</a></p>
         </div>
-        <p class="corporate-email-note" style="margin-top:32px;">
-          Reservas corporativas y grupos de empresas:
-          <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">rionaturalezarelax@gmail.com</a>
-        </p>
+        <form class="wa-form wa-form--compact fade-in">
+          <div class="wa-form-row">
+            <div class="wa-form-group">
+              <label>Nombre</label>
+              <input type="text" data-field="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="wa-form-group">
+              <label>Personas</label>
+              <select data-field="personas">
+                <option value="2 personas">2 personas</option>
+                <option value="3 personas">3 personas</option>
+                <option value="4 personas">4 personas</option>
+                <option value="5 personas">5 personas</option>
+                <option value="6 personas">6 personas</option>
+              </select>
+            </div>
+          </div>
+          <div class="wa-form-row">
+            <div class="wa-form-group">
+              <label>Llegada</label>
+              <input type="date" data-field="checkin">
+            </div>
+            <div class="wa-form-group">
+              <label>Salida</label>
+              <input type="date" data-field="checkout">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-cta-hero">
+            <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar disponibilidad
+          </button>
+        </form>
       </div>
     </div>
   </section>

@@ -19,8 +19,8 @@
       <div class="nav-menu" id="navMenu">
         <a href="index.html"    class="nav-link">Inicio</a>
         <a href="galeria.html"  class="nav-link">Galería</a>
-        <a href="contacto.html" class="nav-link active">Contacto</a>
         <a href="preguntas-frecuentes.html" class="nav-link">Preguntas</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
         <a href="http://wa.me/543329527052" class="nav-cta" target="_blank" rel="noopener">Reservar</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
@@ -43,7 +43,7 @@
             <span class="contact-option-icon"><i class="ph ph-chat-circle-dots"></i></span>
             <div class="contact-option-info">
               <h3>WhatsApp</h3>
-              <p>+54 9 3329 52-7052 · Respondemos todos los días</p>
+              <p><span style="font-weight: 600; letter-spacing: .04em;">+54 9 3329 52-7052</span> · Respondemos todos los días</p>
             </div>
             <a href="http://wa.me/543329527052" class="btn btn-outline" target="_blank" rel="noopener">Escribir</a>
           </div>
@@ -72,7 +72,7 @@
             <span class="contact-option-icon"><i class="ph ph-phone"></i></span>
             <div class="contact-option-info">
               <h3>Llamadas directas</h3>
-              <p>3329 52-7052 · 011 2460 8697</p>
+              <p style="font-weight: 600; letter-spacing: .04em;">3329 52-7052 &nbsp;·&nbsp; 011 2460-8697</p>
             </div>
           </div>
 
@@ -109,6 +109,50 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <section class="section wa-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Hacé tu consulta</h2>
+        <p>Completá el formulario y abrí WhatsApp con tu mensaje ya listo</p>
+      </div>
+      <form class="wa-form fade-in">
+        <div class="wa-form-row">
+          <div class="wa-form-group">
+            <label>Nombre</label>
+            <input type="text" data-field="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="wa-form-group">
+            <label>Personas</label>
+            <select data-field="personas">
+              <option value="2 personas">2 personas</option>
+              <option value="3 personas">3 personas</option>
+              <option value="4 personas">4 personas</option>
+              <option value="5 personas">5 personas</option>
+              <option value="6 personas">6 personas</option>
+            </select>
+          </div>
+        </div>
+        <div class="wa-form-row">
+          <div class="wa-form-group">
+            <label>Fecha de llegada</label>
+            <input type="date" data-field="checkin">
+          </div>
+          <div class="wa-form-group">
+            <label>Fecha de salida</label>
+            <input type="date" data-field="checkout">
+          </div>
+        </div>
+        <div class="wa-form-group">
+          <label>Consulta (opcional)</label>
+          <textarea data-field="consulta" rows="3" placeholder="¿Alguna pregunta adicional?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-cta-hero">
+          <i class="ph ph-whatsapp-logo"></i>&nbsp; Enviar consulta por WhatsApp
+        </button>
+      </form>
     </div>
   </section>
 

@@ -19,8 +19,8 @@
       <div class="nav-menu" id="navMenu">
         <a href="index.html"    class="nav-link active">Inicio</a>
         <a href="galeria.html"  class="nav-link">Galería</a>
-        <a href="contacto.html" class="nav-link">Contacto</a>
         <a href="preguntas-frecuentes.html" class="nav-link">Preguntas</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
         <a href="http://wa.me/543329527052" class="nav-cta" target="_blank" rel="noopener">Reservar</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
@@ -33,6 +33,7 @@
       <h1 class="hero-title fade-in">Apart Club San Pedro</h1>
       <p class="hero-tagline fade-in">Río, Naturaleza y Relax</p>
       <p class="hero-desc fade-in">Lofts con vista al río &nbsp;·&nbsp; Pet friendly &nbsp;·&nbsp; 2 a 6 personas</p>
+      <p class="hero-owners fade-in">Atendido por sus dueños</p>
       <div class="hero-buttons fade-in">
         <a href="http://wa.me/543329527052" class="btn btn-cta-hero" target="_blank" rel="noopener">Consultá disponibilidad</a>
         <a href="galeria.html" class="btn btn-secondary">Ver galería</a>
@@ -132,8 +133,8 @@
           <span class="stat-label">Huéspedes recibidos</span>
         </div>
         <div class="stat-item fade-in">
-          <span class="stat-number" data-target="8">0</span>
-          <span class="stat-label">Espacios al aire libre</span>
+          <span class="stat-number" data-target="15" data-suffix=" min">0</span>
+          <span class="stat-label">Al centro de San Pedro</span>
         </div>
         <div class="stat-item fade-in">
           <span class="stat-number" data-target="170" data-suffix=" km">0</span>
@@ -247,23 +248,46 @@
   </section>
 
 
-  <section class="section section-cta">
+
+  <section class="wa-prefooter">
     <div class="container">
-      <div class="cta-inner fade-in">
-        <h2>¿Listo para tu próxima escapada?</h2>
-        <p>Consultanos disponibilidad y precios por WhatsApp, Instagram o Booking</p>
-        <div class="cta-buttons">
-          <a href="http://wa.me/543329527052"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.booking.com/hotel/ar/rio-naturaleza-y-relax.es-ar.html"
-             class="btn btn-outline btn-lg" target="_blank" rel="noopener">Booking</a>
+      <div class="wa-prefooter-inner">
+        <div class="wa-prefooter-text fade-in">
+          <h2>¿Listo para reservar?</h2>
+          <p>Completá tus datos y te contactamos por WhatsApp al instante.</p>
+          <p class="corporate-email-note" style="margin-top: 20px;">Reservas corporativas: <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">rionaturalezarelax@gmail.com</a></p>
         </div>
-        <p class="corporate-email-note" style="margin-top:32px;">
-          Reservas corporativas y grupos de empresas:
-          <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">rionaturalezarelax@gmail.com</a>
-        </p>
+        <form class="wa-form wa-form--compact fade-in">
+          <div class="wa-form-row">
+            <div class="wa-form-group">
+              <label>Nombre</label>
+              <input type="text" data-field="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="wa-form-group">
+              <label>Personas</label>
+              <select data-field="personas">
+                <option value="2 personas">2 personas</option>
+                <option value="3 personas">3 personas</option>
+                <option value="4 personas">4 personas</option>
+                <option value="5 personas">5 personas</option>
+                <option value="6 personas">6 personas</option>
+              </select>
+            </div>
+          </div>
+          <div class="wa-form-row">
+            <div class="wa-form-group">
+              <label>Llegada</label>
+              <input type="date" data-field="checkin">
+            </div>
+            <div class="wa-form-group">
+              <label>Salida</label>
+              <input type="date" data-field="checkout">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-cta-hero">
+            <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar disponibilidad
+          </button>
+        </form>
       </div>
     </div>
   </section>

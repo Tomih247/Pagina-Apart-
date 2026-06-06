@@ -24,10 +24,13 @@ document.addEventListener('click', e => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Navbar scroll shadow
+  // Navbar — aparece al scrollear, se oculta al detenerse
   const navbar = document.querySelector('.navbar');
+  let navTimer;
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    navbar.classList.add('scrolled');
+    clearTimeout(navTimer);
+    navTimer = setTimeout(() => navbar.classList.remove('scrolled'), 600);
   }, { passive: true });
 
   // Mobile menu
@@ -67,6 +70,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.section-header h2')
     .forEach(h2 => lineObs.observe(h2));
+
+  // WhatsApp form
+  const fmtDate = d => {
+    if (!d) return '';
+    const [y, m, day] = d.split('-');
+    const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    return `${parseInt(day)} de ${meses[parseInt(m)-1]}`;
+  };
+  document.querySelectorAll('.wa-form').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const g = f => (form.querySelector(`[data-field="${f}"]`) || {}).value || '';
+      const nombre   = g('nombre');
+      const checkin  = fmtDate(g('checkin'));
+      const checkout = fmtDate(g('checkout'));
+      const personas = g('personas');
+      const consulta = g('consulta');
+      let msg = `Hola! Quiero consultar disponibilidad en Apart Club San Pedro.`;
+      if (nombre)   msg += `\n\nNombre: ${nombre}`;
+      if (personas) msg += `\nPersonas: ${personas}`;
+      if (checkin)  msg += `\nLlegada: ${checkin}`;
+      if (checkout) msg += `\nSalida: ${checkout}`;
+      if (consulta) msg += `\n\nConsulta: ${consulta}`;
+      window.open(`https://wa.me/543329527052?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  });
 
   // Parallax en page-hero (galería, contacto, preguntas)
   const pageHero = document.querySelector('.page-hero');
