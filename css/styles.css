@@ -645,12 +645,9 @@ a { text-decoration: none; color: inherit; }
 .contact-option .btn { margin-left: auto; padding: 9px 18px; font-size: .82rem; }
 
 .phone-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: .01em;
-  font-variant-numeric: lining-nums;
-  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-weight: 400;
+  color: inherit;
 }
 
 .map-card {
@@ -790,6 +787,14 @@ a { text-decoration: none; color: inherit; }
   .cta-buttons   { flex-direction: column; align-items: center; }
   .gallery-grid  { grid-template-columns: 1fr; }
   .pet-inner     { flex-direction: column; text-align: center; }
+}
+
+/* ─────────────────────────────
+   REVIEWS WIDGET
+───────────────────────────── */
+.reviews-widget {
+  zoom: 0.65;
+  transform-origin: top center;
 }
 
 /* ─────────────────────────────
