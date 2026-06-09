@@ -540,7 +540,9 @@ section { overflow-x: hidden; }
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 48px 16px 14px;
   background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 100%);
+  transition: opacity .6s ease;
 }
+.predio-card:hover .predio-card-info { opacity: 0; }
 .predio-card-info h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: .95rem; font-weight: 600;
