@@ -88,14 +88,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 5. Parallax suave en el hero ────────────────────────────────────────────
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    const maxY = hero.offsetHeight * 1.5;
+  // ── 5. Carrusel hero + parallax ─────────────────────────────────────────────
+  const slides   = document.querySelectorAll('.hero-slide');
+  const dots     = document.querySelectorAll('.hero-dot');
+  const prevBtn  = document.querySelector('.hero-carousel-prev');
+  const nextBtn  = document.querySelector('.hero-carousel-next');
+
+  if (slides.length) {
+    let current  = 0;
+    let autoPlay = null;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      dots[current]?.classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current]?.classList.add('active');
+    }
+
+    function startAuto() { autoPlay = setInterval(() => goTo(current + 1), 5000); }
+    function resetAuto()  { clearInterval(autoPlay); startAuto(); }
+
+    prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
+    startAuto();
+
+    const hero  = document.querySelector('.hero');
+    const maxY  = hero.offsetHeight * 1.5;
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       if (y <= maxY) {
-        hero.style.backgroundPositionY = `calc(50% + ${(y * 0.32).toFixed(1)}px)`;
+        const pos = `calc(50% + ${(y * 0.32).toFixed(1)}px)`;
+        slides.forEach(s => { s.style.backgroundPositionY = pos; });
       }
     }, { passive: true });
   }
