@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     botes:    ['assets/botes1.jpg', 'assets/botes2.jpg', 'assets/botes3.jpg'],
     pesca:    ['assets/pesca1.jpg', 'assets/pesca2.jpg', 'assets/pesca3.jpg'],
     deportes: ['assets/futbol1.jpg', 'assets/futbol2.jpg', 'assets/futbol3.jpg'],
-    juegos:   ['assets/juegos1.jpg', 'assets/juegos2.jpg'],
+    juegos:   ['assets/juegos1.jpg', 'assets/juegos2.jpg', 'assets/juegos3.jpg'],
     parque:   ['assets/parque1.jpg', 'assets/parque2.jpg', 'assets/parque3.jpg'],
     laguna:   ['assets/lago1.jpg', 'assets/lago2.jpg', 'assets/lago3.jpg'],
   };

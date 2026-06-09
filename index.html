@@ -43,8 +43,8 @@
     <button class="hero-carousel-btn hero-carousel-next" aria-label="Siguiente"><i class="ph ph-caret-right"></i></button>
     <div class="hero-content">
       <span class="hero-badge fade-in">San Pedro · Buenos Aires</span>
-      <h1 class="hero-title fade-in">Apart Club San Pedro</h1>
-      <p class="hero-tagline fade-in">Río, Naturaleza y Relax</p>
+      <h1 class="hero-title fade-in">Río, Naturaleza y Relax</h1>
+      <p class="hero-tagline">Apart Club San Pedro</p>
       <p class="hero-desc fade-in"><strong>Lofts con vista al río &nbsp;·&nbsp; Pet friendly &nbsp;·&nbsp; 2 a 6 personas</strong></p>
       <p class="hero-owners fade-in"><strong>Atendido por sus dueños</strong></p>
       <div class="hero-buttons fade-in">
@@ -156,7 +156,7 @@
           <div class="predio-card" data-gallery="playa">
             <img class="predio-preview" src="assets/rio1.jpg" alt="Playa Privada" onerror="this.closest('.predio-card').classList.add('no-preview')">
             <div class="predio-ph"><i class="ph ph-umbrella"></i></div>
-            <div class="predio-hover-hint"><span><i class="ph ph-images"></i> Ver fotos</span></div><div class="predio-card-info"><h3>Playa Privada</h3><p>Acceso directo al río con pequeña playita</p></div>
+            <div class="predio-hover-hint"><span><i class="ph ph-images"></i> Ver fotos</span></div><div class="predio-card-info"><h3>Playa y Río</h3><p>Acceso directo al río con pequeña playita</p></div>
           </div>
         </div>
         <div class="predio-card-wrap fade-in">
@@ -189,9 +189,9 @@
         </div>
         <div class="predio-card-wrap fade-in">
           <div class="predio-card" data-gallery="parque">
-            <img class="predio-preview" src="assets/parque1.jpg" alt="Parque Verde" style="object-position: center 70%;" onerror="this.closest('.predio-card').classList.add('no-preview')">
+            <img class="predio-preview" src="assets/parque1.jpg" alt="Parque Verde" style="object-position: center 71%;" onerror="this.closest('.predio-card').classList.add('no-preview')">
             <div class="predio-ph"><i class="ph ph-tree"></i></div>
-            <div class="predio-hover-hint"><span><i class="ph ph-images"></i> Ver fotos</span></div><div class="predio-card-info"><h3>Parque Verde</h3><p>Flora, fauna — caballo, oveja, aves y más</p></div>
+            <div class="predio-hover-hint"><span><i class="ph ph-images"></i> Ver fotos</span></div><div class="predio-card-info"><h3>Parque Verde</h3><p>Amplio parque verde con flora y fauna local</p></div>
           </div>
         </div>
         <div class="predio-card-wrap fade-in">
@@ -305,7 +305,7 @@
             </div>
           </div>
           <button type="submit" class="btn btn-cta-hero">
-            <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar disponibilidad
+            <i class="ph ph-whatsapp-logo"></i>&nbsp; Enviar formulario
           </button>
           <p class="corporate-email-note corporate-email-note--mobile">Reservas corporativas: <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">rionaturalezarelax@gmail.com</a></p>
         </form>
@@ -317,9 +317,16 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h3>Apart Club San Pedro</h3>
-          <p>Río, Naturaleza y Relax</p>
-          <p>Lucio Mansilla 7300<br>San Pedro, Buenos Aires</p>
+          <img src="assets/muelle.jpg" alt="Muelle Apart Club San Pedro" class="footer-brand-img">
+          <div class="footer-brand-info">
+            <h3>Río, Naturaleza y Relax</h3>
+            <p>Apart Club San Pedro</p>
+            <p>Lucio Mansilla 7300<br>San Pedro, Buenos Aires</p>
+            <div class="footer-social">
+              <a href="http://wa.me/543329527052" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+              <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            </div>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Páginas</h4>
@@ -331,9 +338,7 @@
         <div class="footer-col">
           <h4>Reservas</h4>
           <a href="http://wa.me/543329527052" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.booking.com/hotel/ar/rio-naturaleza-y-relax.es-ar.html" target="_blank" rel="noopener">Booking</a>
-          <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener" >Corporativo</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=rionaturalezarelax@gmail.com" target="_blank" rel="noopener">Corporativo</a>
         </div>
       </div>
       <p class="footer-copy">© 2026 Apart Club San Pedro · Todos los derechos reservados</p>
@@ -371,6 +376,17 @@
   <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
   <script src="js/scroll-animations.js"></script>
   <script src="js/animations.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const t = document.querySelector('.hero-tagline');
+        if (!t) return;
+        t.style.transition = 'clip-path 1.5s linear, opacity .6s ease';
+        t.style.opacity    = '1';
+        t.style.clipPath   = 'inset(-30px 0% -30px 0)';
+      }, 800);
+    });
+  </script>
   <script src="js/lightbox.js"></script>
 </body>
 </html>
