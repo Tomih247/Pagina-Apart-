@@ -127,7 +127,7 @@ a { text-decoration: none; color: inherit; }
   background-image:
     url('../assets/prueba.jpeg');
   background-size: cover;
-  background-position: center 100%;
+  background-position: center;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
