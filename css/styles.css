@@ -982,8 +982,15 @@ section { overflow-x: hidden; }
   /* Carrusel — ocultar flechas */
   .hero-carousel-btn { display: none; }
 
-  /* Hero desc — una sola línea */
-  .hero-desc { font-size: .72rem; letter-spacing: -.02em; white-space: nowrap; }
+  /* Hero — texto más grande y legible en mobile */
+  .hero-title   { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  .hero-tagline { font-size: 1.45rem; }
+  .hero-desc    { font-size: 1rem; letter-spacing: .02em; white-space: normal; }
+  .hero-owners  { font-size: .92rem; }
+  .hero-scroll  { font-size: .9rem; }
+
+  /* Hero badge (San Pedro · Buenos Aires) — más chico en mobile */
+  .hero-badge { font-size: .65rem; padding: 5px 11px; margin-bottom: 14px; letter-spacing: .1em; }
 
   /* Predio cards — menos altos */
   .predio-card { aspect-ratio: 16/9; }
@@ -991,10 +998,57 @@ section { overflow-x: hidden; }
   /* Descuento — solo título y botón, sin copy */
   .discount-text p { display: none; }
 
-  /* WA prefooter — texto centrado sobre el form */
+  /* WA prefooter — idéntico al form de contacto en mobile */
+  .wa-prefooter { background: var(--bg-alt); }
+  .wa-prefooter-inner { display: flex; flex-direction: column; gap: 20px; }
   .wa-prefooter-text { text-align: center; }
-  .wa-prefooter-text h2 { font-size: 1.4rem; }
+  .wa-prefooter-text h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .wa-prefooter-text p { text-align: center; font-size: .95rem; }
   .wa-prefooter-text .corporate-email-note { text-align: center; }
+  .wa-form--compact {
+    max-width: 640px; width: 100%;
+    margin: 0 auto; box-sizing: border-box;
+  }
+  .wa-form--compact .wa-form-group input,
+  .wa-form--compact .wa-form-group select,
+  .wa-form--compact .wa-form-group textarea {
+    width: 100%; box-sizing: border-box;
+  }
+
+  /* Loft — texto más grande */
+  .loft-desc       { font-size: 1rem; }
+  .feature-list li { font-size: .97rem; }
+
+  /* Amenidades — texto más grande */
+  .amenity-card h3 { font-size: 1.08rem; }
+  .amenity-card p  { font-size: .92rem; }
+
+  /* Nav menú desplegado — links más grandes */
+  .nav-link { font-size: 1.15rem; }
+  .nav-cta  { font-size: 1.05rem; padding: 11px 22px; }
+
+  /* Contacto — texto más grande */
+  .contact-card h2            { font-size: 1.5rem; }
+  .contact-option-info h3     { font-size: 1.05rem; }
+  .contact-option-info p      { font-size: .97rem; }
+  .contact-option .btn        { font-size: .88rem; }
+
+  /* Formularios — labels y hints más grandes */
+  .wa-form-group label              { font-size: .88rem; }
+  .form-discount-hint               { font-size: .9rem; }
+  .form-discount-hint strong        { font-size: .92rem; }
+
+  /* Promo pill — más compacta en mobile */
+  .promo-pill { padding: 7px 10px 7px 10px; gap: 7px; max-width: 240px; }
+  .promo-pill-icon   { font-size: .85rem; }
+  .promo-pill-text   { font-size: .66rem; }
+  .promo-pill-text strong { font-size: .72rem; }
+  .promo-pill-cta    { font-size: .66rem; padding: 5px 9px; }
+  .promo-pill-close  { width: 20px; height: 20px; font-size: .65rem; }
 
   /* Botón CTA hero — más visible sobre la foto */
   .hero .btn-cta-hero { background: white; color: var(--primary); animation: none; }

@@ -121,9 +121,13 @@
     details.faq-item:nth-child(13) { transition-delay: .84s; }
     details.faq-item:nth-child(14) { transition-delay: .91s; }
 
-    /* Mobile — sin translateX para evitar corte del marco izquierdo */
+    /* Mobile — sin translateX + texto más grande */
     @media (max-width: 768px) {
       details.faq-item.fade-in { transform: translateY(16px); }
+      details.faq-item summary { font-size: 1.08rem; padding: 18px 18px; }
+      details.faq-item .faq-body { font-size: 1.02rem; }
+      details.faq-item[open] .faq-body { padding: 0 18px 20px; }
+      .faq-checkin-item span { font-size: 1rem; }
     }
 
     /* Al hover/open, el delay ya cumplió su función — lo quitamos */
