@@ -39,6 +39,7 @@ html {
   font-size: 19px;
   background: #1c1e1b;
   overflow-x: hidden;
+  scrollbar-gutter: stable;
   max-width: 100%;
 }
 
@@ -241,11 +242,11 @@ a { text-decoration: none; color: inherit; }
 
 .hero-owners {
   font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,.85); margin-bottom: 36px; margin-top: -8px;
+  color: white; margin-bottom: 36px; margin-top: -8px;
 }
 
 .hero-desc {
-  color: rgba(255,255,255,.72); font-size: 1.15rem;
+  color: white; font-size: 1.15rem;
   margin-bottom: 18px; letter-spacing: .04em;
 }
 
