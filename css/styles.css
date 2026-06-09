@@ -1024,43 +1024,49 @@ section { overflow-x: hidden; }
   /* ── Formularios — labels más legibles ── */
   .wa-form-group label { font-size: .86rem; }
 
-  /* ── WA prefooter — misma estructura que la sección de contacto ── */
-  .wa-prefooter { background: var(--bg-alt); }
-  .wa-prefooter-inner {
-    display: flex; flex-direction: column;
-    align-items: center; gap: 24px;
-  }
+  /* ── WA prefooter — idéntico al form de contacto en mobile ── */
+  .wa-prefooter { background: var(--bg-alt); padding: clamp(44px, 7vh, 80px) 0; }
+  .wa-prefooter-inner { display: flex; flex-direction: column; gap: 0; }
+
+  /* Heading = mismo que .section-header */
   .wa-prefooter-text {
-    text-align: center; width: 100%;
+    text-align: center;
+    margin-bottom: clamp(24px, 4vh, 48px);
   }
   .wa-prefooter-text h2 {
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-size: clamp(1.4rem, 5.5vw, 2.8rem);
     color: var(--accent);
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     position: relative; display: inline-block;
   }
   .wa-prefooter-text h2::after {
     content: '';
-    position: absolute; bottom: -8px; left: 50%;
+    position: absolute; bottom: -10px; left: 50%;
     transform: translateX(-50%);
-    width: 70%; height: 2px; border-radius: 2px;
+    width: 80%; height: 2px; border-radius: 2px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);
   }
-  .wa-prefooter-text p                    { text-align: center; color: var(--text-light); }
-  .wa-prefooter-text .corporate-email-note { text-align: center; }
-  .wa-form--compact {
-    max-width: 640px; width: 100%;
-    margin: 0 auto; box-sizing: border-box;
+  .wa-prefooter-text p {
+    color: var(--text-light); font-size: 1.05rem;
+    max-width: 520px; margin: 0 auto;
   }
-  .wa-form--compact .wa-form-group input,
-  .wa-form--compact .wa-form-group select,
-  .wa-form--compact .wa-form-group textarea { width: 100%; box-sizing: border-box; }
 
-  /* ── Botón WA flotante — más chico, emoji grande ── */
-  .whatsapp-float { width: 42px; height: 42px; bottom: 18px; right: 18px; font-size: 2rem; }
+  /* Form = mismo que .wa-form (max-width 640 centrado, full-width) */
+  .wa-form--compact { max-width: 640px; width: 100%; margin: 0 auto; box-sizing: border-box; }
 
-  /* ── Promo pill — oculta en mobile (el form ya tiene el hint) ── */
-  .promo-pill { display: none; }
+  /* ── Reservas corporativas — versión desktop oculta, versión mobile visible ── */
+  .corporate-email-note--desktop { display: none; }
+  .corporate-email-note--mobile  { display: block; margin-top: 16px; }
+
+  /* ── Botones de page-hero en subpages — más compactos ── */
+  .page-hero-cta { font-size: .8rem; padding: 9px 16px; }
+
+  /* ── Botón WA flotante — chico, emoji prominente ── */
+  .whatsapp-float { width: 38px; height: 38px; bottom: 16px; right: 16px; font-size: 2.2rem; }
+
+  /* ── Promo pill — oculta en mobile (también cuando JS agrega .visible) ── */
+  .promo-pill,
+  .promo-pill.visible { display: none; }
 }
 
 /* ─────────────────────────────
@@ -1254,6 +1260,9 @@ section { overflow-x: hidden; }
 }
 .wa-form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.5); }
 .wa-form .btn { align-self: flex-start; margin-top: 4px; }
+
+/* Reservas corporativas: en desktop en columna izquierda, en mobile al pie del form */
+.corporate-email-note--mobile { display: none; }
 
 /* Pre-footer compacto (otras páginas) */
 .wa-prefooter {
