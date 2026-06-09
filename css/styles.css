@@ -861,9 +861,9 @@ section { overflow-x: hidden; }
 
   /* Verdes más claros — en mobile se ven más oscuros */
   :root {
-    --primary:       #5d8068;
-    --primary-light: #709178;
-    --accent:        #a0c09d;
+    --primary:       #6db57f;
+    --primary-light: #7ebf90;
+    --accent:        #aac9a7;
   }
 
   .nav-menu {
@@ -967,13 +967,39 @@ section { overflow-x: hidden; }
   transform-origin: top center;
 }
 @media (max-width: 768px) {
-  .reviews-widget { zoom: 0.70; }
+  .reviews-widget { zoom: 0.58; }
 }
 @media (max-width: 480px) {
-  .reviews-widget { zoom: 1; }
+  .reviews-widget { zoom: 0.52; }
 }
 
 
+
+/* ─────────────────────────────
+   MOBILE ENHANCEMENTS
+───────────────────────────── */
+@media (max-width: 768px) {
+  /* Carrusel — ocultar flechas */
+  .hero-carousel-btn { display: none; }
+
+  /* Hero desc — una sola línea */
+  .hero-desc { font-size: .72rem; letter-spacing: -.02em; white-space: nowrap; }
+
+  /* Predio cards — menos altos */
+  .predio-card { aspect-ratio: 16/9; }
+
+  /* Descuento — solo título y botón, sin copy */
+  .discount-text p { display: none; }
+
+  /* WA prefooter — texto centrado sobre el form */
+  .wa-prefooter-text { text-align: center; }
+  .wa-prefooter-text h2 { font-size: 1.4rem; }
+  .wa-prefooter-text .corporate-email-note { text-align: center; }
+
+  /* Botón CTA hero — más visible sobre la foto */
+  .hero .btn-cta-hero { background: white; color: var(--primary); animation: none; }
+  .hero .btn-cta-hero:hover { background: var(--bg); }
+}
 
 /* ─────────────────────────────
    PROMO PILL (flotante)

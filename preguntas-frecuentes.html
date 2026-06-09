@@ -119,6 +119,12 @@
     details.faq-item:nth-child(11) { transition-delay: .70s; }
     details.faq-item:nth-child(12) { transition-delay: .77s; }
     details.faq-item:nth-child(13) { transition-delay: .84s; }
+    details.faq-item:nth-child(14) { transition-delay: .91s; }
+
+    /* Mobile — sin translateX para evitar corte del marco izquierdo */
+    @media (max-width: 768px) {
+      details.faq-item.fade-in { transform: translateY(16px); }
+    }
 
     /* Al hover/open, el delay ya cumplió su función — lo quitamos */
     details.faq-item.visible {
@@ -218,7 +224,7 @@
             <i class="ph ph-caret-down faq-chevron"></i>
           </summary>
           <div class="faq-body">
-            <p>Sí, y es una de las actividades que más disfrutan los huéspedes. Podés pescar desde el <strong>muelle</strong> con vista al río, y en primavera y verano es temporada de <strong>dorado y surubí</strong>. También contamos con <strong>bajada náutica</strong> para quienes quieran salir con su propio equipo.</p>
+            <p>¡Sí! El complejo cuenta con acceso directo a un brazo del río Paraná, donde podés pescar desde el <strong>muelle</strong> o la <strong>playita privada</strong>. Además, para quienes buscan una experiencia más completa, también es posible realizar salidas en bote. Según la temporada, se pueden encontrar especies como <strong>pejerrey, boga, dorado, surubí, tararira y bagres</strong>.</p>
           </div>
         </details>
 
@@ -307,6 +313,17 @@
           </summary>
           <div class="faq-body">
             <p>Sí, contamos con <strong>muelle y bajada náutica</strong> para quienes quieran llegar o salir con su embarcación.</p>
+          </div>
+        </details>
+
+        <!-- 13. Accesibilidad -->
+        <details class="faq-item fade-in">
+          <summary>
+            <span>¿El complejo es accesible para personas con movilidad reducida?</span>
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí. Contamos con <strong>rampas y accesos adaptados</strong> para que todos nuestros huéspedes puedan disfrutar de una estadía cómoda y segura.</p>
           </div>
         </details>
 
