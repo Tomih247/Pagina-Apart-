@@ -125,7 +125,7 @@ a { text-decoration: none; color: inherit; }
   min-height: 100vh;
   min-height: 100svh;
   background-image:
-    linear-gradient(rgba(10,12,10,.18), rgba(10,12,10,.18)),
+    radial-gradient(ellipse at 50% 45%, rgba(10,12,10,.6) 0%, rgba(10,12,10,.2) 45%, transparent 70%),
     url('../assets/prueba.jpeg');
   background-size: cover;
   background-position: right bottom;
@@ -135,6 +135,7 @@ a { text-decoration: none; color: inherit; }
   padding: clamp(80px, 10vh, 120px) 24px clamp(100px, 14vh, 160px);
   position: relative; overflow: hidden;
 }
+
 
 
 .hero::after {
