@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let pillShown = false;
     const heroEl  = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
-      const threshold = heroEl ? heroEl.offsetHeight * 0.65 : 450;
+      const threshold = heroEl ? heroEl.offsetHeight * 0.65 : 200;
       if (!pillShown && window.scrollY > threshold) {
         pillShown = true;
         promoPill.classList.add('visible');

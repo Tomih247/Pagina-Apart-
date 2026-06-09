@@ -36,7 +36,11 @@
 
   <header class="page-hero" style="background-image: url('assets/parque-verde.jpg'); background-position: center 45%;">
     <h1>Galería</h1>
-    <p>Conocé el lugar antes de llegar</p>
+<p>Conocé el lugar antes de llegar</p>
+    <a href="http://wa.me/543329527052" class="btn btn-secondary page-hero-cta" target="_blank" rel="noopener">
+      <i class="ph ph-calendar-plus"></i>&nbsp; Reservar ahora
+    </a>
+    <div class="page-hero-scroll"><i class="ph ph-caret-down"></i></div>
   </header>
 
   <section class="section">
@@ -117,6 +121,13 @@
               <input type="date" data-field="checkout">
             </div>
           </div>
+          <div class="form-discount-hint">
+            <i class="ph ph-tag"></i>
+            <div>
+              <strong>Descuento entre semana</strong>
+              <span>Viajá lunes a jueves y pagás menos · No aplica en feriados</span>
+            </div>
+          </div>
           <button type="submit" class="btn btn-cta-hero">
             <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar disponibilidad
           </button>
@@ -156,7 +167,132 @@
     <i class="ph ph-whatsapp-logo"></i>
   </a>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lb-close" aria-label="Cerrar"><i class="ph ph-x"></i></button>
+    <button class="lb-prev"  aria-label="Anterior"><i class="ph ph-caret-left"></i></button>
+    <button class="lb-next"  aria-label="Siguiente"><i class="ph ph-caret-right"></i></button>
+    <div class="lb-img-wrap">
+      <img class="lb-img" src="" alt="">
+      <div class="lb-placeholder">
+        <i class="ph ph-image"></i>
+        <span></span>
+      </div>
+    </div>
+    <div class="lb-counter"></div>
+  </div>
+
+  <div class="promo-pill" id="promoPill">
+    <i class="ph ph-tag promo-pill-icon"></i>
+    <div class="promo-pill-text">
+      <strong>Descuento entre semana</strong>
+      Lunes a jueves · sin feriados
+    </div>
+    <a href="http://wa.me/543329527052" class="promo-pill-cta" target="_blank" rel="noopener">Consultá</a>
+    <button class="promo-pill-close" id="promoPillClose" aria-label="Cerrar">✕</button>
+  </div>
+
   <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
   <script src="js/scroll-animations.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lb        = document.getElementById('lightbox');
+    const lbImg     = lb.querySelector('.lb-img');
+    const lbPh      = lb.querySelector('.lb-placeholder');
+    const lbPhLabel = lb.querySelector('.lb-placeholder span');
+    const lbCounter = lb.querySelector('.lb-counter');
+
+    let images  = [];
+    let current = 0;
+
+    function show(index) {
+      current = (index + images.length) % images.length;
+      lbCounter.textContent = `${current + 1} / ${images.length}`;
+      lbImg.style.opacity = '0';
+      setTimeout(() => {
+        const test = new Image();
+        test.onload = () => {
+          lbImg.src = images[current];
+          lbImg.style.display = 'block';
+          lbPh.style.display  = 'none';
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            lbImg.style.opacity = '1';
+          }));
+        };
+        test.onerror = () => {
+          lbImg.style.display = 'none';
+          lbPh.style.display  = 'flex';
+          lbPhLabel.textContent = images[current];
+        };
+        test.src = images[current];
+      }, 220);
+    }
+
+    function open(imgs, startIdx) {
+      images  = imgs;
+      current = startIdx;
+      document.body.style.overflow = 'hidden';
+      lbCounter.textContent = `${current + 1} / ${images.length}`;
+
+      const test = new Image();
+      test.onload = () => {
+        lbImg.src = images[current];
+        lbImg.style.display  = 'block';
+        lbImg.style.opacity  = '1';
+        lbPh.style.display   = 'none';
+        lb.classList.add('is-open');
+      };
+      test.onerror = () => {
+        lbImg.style.display = 'none';
+        lbPh.style.display  = 'flex';
+        lbPhLabel.textContent = images[current];
+        lb.classList.add('is-open');
+      };
+      test.src = images[current];
+    }
+
+    function close() {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        lbImg.src = '';
+        lbImg.style.opacity = '0';
+        lbImg.style.display = 'none';
+      }, 460);
+    }
+
+    // Click en cualquier foto de la galería
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        const grid    = img.closest('.gallery-grid');
+        const allImgs = Array.from(grid.querySelectorAll('img')).map(i => i.src);
+        const idx     = Array.from(grid.querySelectorAll('img')).indexOf(img);
+        open(allImgs, idx);
+      });
+    });
+
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    lb.querySelector('.lb-prev').addEventListener('click',  () => show(current - 1));
+    lb.querySelector('.lb-next').addEventListener('click',  () => show(current + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+    // Swipe táctil
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend',   e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 45) diff > 0 ? show(current + 1) : show(current - 1);
+    }, { passive: true });
+
+    // Teclado
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape')     close();
+      if (e.key === 'ArrowLeft')  show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  });
+  </script>
 </body>
 </html>

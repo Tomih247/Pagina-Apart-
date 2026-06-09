@@ -36,7 +36,11 @@
 
   <header class="page-hero" style="background-image: url('assets/loft-dormitorio.jpg'); background-position: center 35%;">
     <h1>Contacto</h1>
-    <p>Consultanos disponibilidad y precios — respondemos rápido</p>
+<p>Consultanos disponibilidad y precios — respondemos rápido</p>
+    <a href="#consulta" class="btn btn-secondary page-hero-cta">
+      <i class="ph ph-chat-circle-dots"></i>&nbsp; Ir al formulario
+    </a>
+    <div class="page-hero-scroll"><i class="ph ph-caret-down"></i></div>
   </header>
 
   <section class="section">
@@ -125,7 +129,7 @@
         <h2>Hacé tu consulta</h2>
         <p>Completá el formulario y abrí WhatsApp con tu mensaje ya listo</p>
       </div>
-      <form class="wa-form fade-in">
+      <form class="wa-form fade-in" id="consulta">
         <div class="wa-form-row">
           <div class="wa-form-group">
             <label>Nombre</label>
@@ -156,28 +160,17 @@
           <label>Consulta (opcional)</label>
           <textarea data-field="consulta" rows="3" placeholder="¿Alguna pregunta adicional?"></textarea>
         </div>
+        <div class="form-discount-hint form-discount-hint--stack">
+          <i class="ph ph-tag"></i>
+          <div>
+            <strong>Descuento entre semana</strong>
+            <span>Viajá lunes a jueves y pagás menos · No aplica en feriados</span>
+          </div>
+        </div>
         <button type="submit" class="btn btn-cta-hero">
           <i class="ph ph-whatsapp-logo"></i>&nbsp; Enviar consulta por WhatsApp
         </button>
       </form>
-    </div>
-  </section>
-
-  <section class="section-discount" style="padding: 60px 0;">
-    <div class="container">
-      <div class="discount-inner fade-in">
-        <div class="discount-icon"><i class="ph ph-tag"></i></div>
-        <div class="discount-text">
-          <h2>Recordá el descuento entre semana</h2>
-          <p>Viajá de <strong>lunes a jueves</strong> y aprovechá tarifas especiales.</p>
-          <p class="discount-note">* No aplica en feriados</p>
-        </div>
-        <div>
-          <a href="http://wa.me/543329527052" class="btn btn-white" target="_blank" rel="noopener">
-            Consultá el precio
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -212,7 +205,27 @@
     <i class="ph ph-whatsapp-logo"></i>
   </a>
 
+  <div class="promo-pill" id="promoPill">
+    <i class="ph ph-tag promo-pill-icon"></i>
+    <div class="promo-pill-text">
+      <strong>Descuento entre semana</strong>
+      Lunes a jueves · sin feriados
+    </div>
+    <a href="http://wa.me/543329527052" class="promo-pill-cta" target="_blank" rel="noopener">Consultá</a>
+    <button class="promo-pill-close" id="promoPillClose" aria-label="Cerrar">✕</button>
+  </div>
+
   <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
   <script src="js/scroll-animations.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.querySelector('a[href="#consulta"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      const el = document.getElementById('consulta');
+      const rect = el.getBoundingClientRect();
+      const target = window.scrollY + rect.top - (window.innerHeight * 0.45);
+      window.scrollTo({ top: target, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

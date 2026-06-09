@@ -146,7 +146,11 @@
 
   <header class="page-hero" style="background-image: url('assets/pileta3.jpg'); background-position: 70% 50%;">
     <h1>Preguntas frecuentes</h1>
-    <p>Todo lo que necesitás saber antes de reservar</p>
+<p>Todo lo que necesitás saber antes de reservar</p>
+    <a href="http://wa.me/543329527052" class="btn btn-secondary page-hero-cta" target="_blank" rel="noopener">
+      <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar por WhatsApp
+    </a>
+    <div class="page-hero-scroll"><i class="ph ph-caret-down"></i></div>
   </header>
 
   <section class="section">
@@ -333,6 +337,13 @@
               <input type="date" data-field="checkout">
             </div>
           </div>
+          <div class="form-discount-hint">
+            <i class="ph ph-tag"></i>
+            <div>
+              <strong>Descuento entre semana</strong>
+              <span>Viajá lunes a jueves y pagás menos · No aplica en feriados</span>
+            </div>
+          </div>
           <button type="submit" class="btn btn-cta-hero">
             <i class="ph ph-whatsapp-logo"></i>&nbsp; Consultar disponibilidad
           </button>
@@ -372,8 +383,19 @@
     <i class="ph ph-whatsapp-logo"></i>
   </a>
 
+  <div class="promo-pill" id="promoPill">
+    <i class="ph ph-tag promo-pill-icon"></i>
+    <div class="promo-pill-text">
+      <strong>Descuento entre semana</strong>
+      Lunes a jueves · sin feriados
+    </div>
+    <a href="http://wa.me/543329527052" class="promo-pill-cta" target="_blank" rel="noopener">Consultá</a>
+    <button class="promo-pill-close" id="promoPillClose" aria-label="Cerrar">✕</button>
+  </div>
+
   <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
   <script src="js/scroll-animations.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>
 
