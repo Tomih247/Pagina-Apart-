@@ -855,7 +855,7 @@ section { overflow-x: hidden; }
 
 /* Tablet / móvil (768px) */
 @media (max-width: 768px) {
-  html { font-size: 17px; }
+  html { font-size: 18px; }
   .section { padding: 64px 0; }
   .container { padding: 0 18px; }
 
@@ -927,7 +927,7 @@ section { overflow-x: hidden; }
 
 /* Móvil pequeño (480px) */
 @media (max-width: 480px) {
-  html { font-size: 16px; }
+  html { font-size: 17px; }
   .section { padding: 52px 0; }
   .container { padding: 0 16px; }
 
@@ -949,7 +949,7 @@ section { overflow-x: hidden; }
 
 /* Móvil muy pequeño (360px) */
 @media (max-width: 360px) {
-  html { font-size: 14px; }
+  html { font-size: 15px; }
   .section { padding: 44px 0; }
   .container { padding: 0 14px; }
 
@@ -967,10 +967,10 @@ section { overflow-x: hidden; }
   transform-origin: top center;
 }
 @media (max-width: 768px) {
-  .reviews-widget { zoom: 0.58; }
+  .reviews-widget { zoom: 0.68; }
 }
 @media (max-width: 480px) {
-  .reviews-widget { zoom: 0.52; }
+  .reviews-widget { zoom: 0.60; }
 }
 
 
@@ -979,56 +979,88 @@ section { overflow-x: hidden; }
    MOBILE ENHANCEMENTS
 ───────────────────────────── */
 @media (max-width: 768px) {
-  /* Carrusel — ocultar flechas */
+
+  /* ── Navbar — más compacta ── */
+  .nav-container { height: 60px; }
+  .nav-logo-img  { height: 38px; }
+  .nav-menu      { padding: 18px 20px; gap: 16px; top: 60px; }
+  .nav-link      { font-size: .95rem; }
+  .nav-toggle    { font-size: 1.3rem; }
+
+  /* ── Carrusel — ocultar flechas ── */
   .hero-carousel-btn { display: none; }
 
-  /* Hero — título con más impacto; desc en una sola línea */
-  .hero-title  { font-size: clamp(2.2rem, 9vw, 3.2rem); }
-  .hero-desc   { font-size: .8rem; letter-spacing: .03em; white-space: nowrap; }
-  .hero-owners { font-size: .72rem; }
-  .hero-scroll { font-size: 1rem; }
+  /* ── Hero — título en una sola línea, proporciones desktop ── */
+  .hero-title  { font-size: clamp(1.9rem, 7.5vw, 3.2rem); white-space: nowrap; }
+  .hero-desc   { font-size: .78rem; letter-spacing: .03em; white-space: nowrap; }
+  .hero-owners { font-size: .7rem; }
+  .hero-scroll { font-size: .95rem; }
 
-  /* Hero badge — más compacto */
-  .hero-badge { font-size: .65rem; padding: 5px 11px; margin-bottom: 14px; letter-spacing: .1em; }
+  /* ── Hero badge — compacto ── */
+  .hero-badge { font-size: .62rem; padding: 5px 11px; margin-bottom: 14px; letter-spacing: .1em; }
 
-  /* Predio cards — menos altos */
-  .predio-card { aspect-ratio: 16/9; }
+  /* ── Sección headers — "Todo incluido en tu estadía" en una línea ── */
+  .section-header h2 { font-size: clamp(1.4rem, 5.5vw, 2.8rem); }
 
-  /* Descuento — solo título y botón, sin copy */
-  .discount-text p { display: none; }
+  /* ── Amenidades — ícono más grande ── */
+  .amenity-icon { font-size: 2.4rem; }
 
-  /* Nav menú abierto — links con buen tamaño táctil */
-  .nav-link { font-size: 1.05rem; }
+  /* ── Predio — tap abre lightbox directamente ── */
+  .predio-card          { aspect-ratio: 16/9; cursor: pointer; }
+  .predio-hover-hint    { display: none; }
 
-  /* Formularios — labels (.72rem del desktop quedan muy chicos) */
-  .wa-form-group label { font-size: .88rem; }
+  /* ── Sección descuento — vertical, centrada ── */
+  .discount-inner {
+    flex-direction: column; align-items: center; text-align: center;
+    padding: 22px 20px; gap: 10px;
+  }
+  .discount-icon { display: none; }
+  .discount-text h2 { font-size: 1.1rem; margin-bottom: 4px; }
+  .discount-text p  { display: none; }
+  .discount-inner .btn { font-size: .85rem; padding: 10px 22px; }
 
-  /* WA prefooter — apilado como la sección de contacto */
+  /* ── Reseñas — zoom un poco mayor ── */
+
+  /* ── Formularios — labels más legibles ── */
+  .wa-form-group label { font-size: .86rem; }
+
+  /* ── WA prefooter — misma estructura que la sección de contacto ── */
   .wa-prefooter { background: var(--bg-alt); }
-  .wa-prefooter-inner { display: flex; flex-direction: column; gap: 20px; }
-  .wa-prefooter-text { text-align: center; }
-  .wa-prefooter-text h2 { color: var(--accent); margin-bottom: 10px; }
-  .wa-prefooter-text p { text-align: center; }
+  .wa-prefooter-inner {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 24px;
+  }
+  .wa-prefooter-text {
+    text-align: center; width: 100%;
+  }
+  .wa-prefooter-text h2 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    color: var(--accent);
+    margin-bottom: 10px;
+    position: relative; display: inline-block;
+  }
+  .wa-prefooter-text h2::after {
+    content: '';
+    position: absolute; bottom: -8px; left: 50%;
+    transform: translateX(-50%);
+    width: 70%; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  }
+  .wa-prefooter-text p                    { text-align: center; color: var(--text-light); }
   .wa-prefooter-text .corporate-email-note { text-align: center; }
-  .wa-form--compact { max-width: 640px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+  .wa-form--compact {
+    max-width: 640px; width: 100%;
+    margin: 0 auto; box-sizing: border-box;
+  }
   .wa-form--compact .wa-form-group input,
   .wa-form--compact .wa-form-group select,
   .wa-form--compact .wa-form-group textarea { width: 100%; box-sizing: border-box; }
 
-  /* Botón WA flotante — más compacto, ícono prominente */
-  .whatsapp-float { width: 46px; height: 46px; bottom: 20px; right: 20px; font-size: 1.9rem; }
+  /* ── Botón WA flotante — más chico, emoji grande ── */
+  .whatsapp-float { width: 42px; height: 42px; bottom: 18px; right: 18px; font-size: 2rem; }
 
-  /* Promo pill — compacta */
-  .promo-pill { padding: 7px 10px; gap: 7px; max-width: 240px; }
-  .promo-pill-icon   { font-size: .85rem; }
-  .promo-pill-text   { font-size: .66rem; }
-  .promo-pill-text strong { font-size: .72rem; }
-  .promo-pill-cta    { font-size: .66rem; padding: 5px 9px; }
-  .promo-pill-close  { width: 20px; height: 20px; font-size: .65rem; }
-
-  /* Botón CTA hero — blanco sobre foto */
-  .hero .btn-cta-hero { background: white; color: var(--primary); animation: none; }
-  .hero .btn-cta-hero:hover { background: var(--bg); }
+  /* ── Promo pill — oculta en mobile (el form ya tiene el hint) ── */
+  .promo-pill { display: none; }
 }
 
 /* ─────────────────────────────
