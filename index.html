@@ -7,6 +7,13 @@
   <meta name="description" content="Lofts con vista al río en San Pedro, Buenos Aires. Pet friendly, parrilla, pileta y acceso al río. Para 2 a 6 personas.">
   <link rel="icon" href="assets/logo.png">
   <link rel="stylesheet" href="css/styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-655V3FZFTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-655V3FZFTZ');
+  </script>
 </head>
 <body>
 <div class="page-transition" id="pageTransition"></div>
@@ -228,7 +235,7 @@
     </div>
   </section>
 
-  <section class="section-discount">
+  <section class="section-discount" id="descuento">
     <div class="container">
       <div class="discount-inner fade-in">
         <div class="discount-icon"><i class="ph ph-tag"></i></div>
@@ -331,6 +338,16 @@
       </div>
     </div>
     <div class="lb-counter"></div>
+  </div>
+
+  <div class="promo-pill" id="promoPill">
+    <i class="ph ph-tag promo-pill-icon"></i>
+    <div class="promo-pill-text">
+      <strong>Descuento entre semana</strong>
+      Lunes a jueves · sin feriados
+    </div>
+    <a href="http://wa.me/543329527052" class="promo-pill-cta" target="_blank" rel="noopener">Consultá</a>
+    <button class="promo-pill-close" id="promoPillClose" aria-label="Cerrar">✕</button>
   </div>
 
   <a href="http://wa.me/543329527052" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">

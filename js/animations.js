@@ -69,7 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.stat-number[data-target]')
     .forEach(el => statsObs.observe(el));
 
-  // ── 3. Parallax suave en el hero ────────────────────────────────────────────
+  // ── 3. Promo pill (aparece al pasar el hero) ──────────────────────────────
+  const promoPill      = document.getElementById('promoPill');
+  const promoPillClose = document.getElementById('promoPillClose');
+  if (promoPill) {
+    let pillShown = false;
+    const heroEl  = document.querySelector('.hero');
+    window.addEventListener('scroll', () => {
+      const threshold = heroEl ? heroEl.offsetHeight * 0.65 : 450;
+      if (!pillShown && window.scrollY > threshold) {
+        pillShown = true;
+        promoPill.classList.add('visible');
+      }
+    }, { passive: true });
+    promoPillClose && promoPillClose.addEventListener('click', () => {
+      promoPill.classList.remove('visible');
+      promoPill.classList.add('gone');
+    });
+  }
+
+  // ── 5. Parallax suave en el hero ────────────────────────────────────────────
   const hero = document.querySelector('.hero');
   if (hero) {
     const maxY = hero.offsetHeight * 1.5;

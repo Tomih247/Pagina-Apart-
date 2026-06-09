@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin · Apart Club San Pedro</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    :root {
+      --bg:           #1a1d19;
+      --surface:      #222520;
+      --surface-alt:  #292c27;
+      --border:       rgba(116,198,157,.14);
+      --border-hover: rgba(116,198,157,.38);
+      --primary:      #4a6b52;
+      --primary-l:    #5e7f66;
+      --accent:       #8da88a;
+      --text:         #e4e6e2;
+      --text-light:   #9aa096;
+      --red:          rgba(220,70,70,.85);
+      --radius:       12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; }
+
+    /* ── LOGIN ──────────────────────────────────────────── */
+    #loginScreen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      background: radial-gradient(ellipse at 25% 55%, rgba(74,107,82,.13) 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 30%, rgba(116,198,157,.06) 0%, transparent 50%);
+    }
+    .login-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px 38px; width: 100%; max-width: 390px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.45);
+    }
+    .login-brand {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--border);
+    }
+    .login-brand img { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; }
+    .login-brand-text h1 { font-size: .95rem; font-weight: 600; color: var(--text); }
+    .login-brand-text span { font-size: .73rem; color: var(--text-light); }
+
+    .login-heading { font-size: 1.35rem; font-weight: 700; margin-bottom: 5px; }
+    .login-sub { font-size: .83rem; color: var(--text-light); margin-bottom: 28px; }
+
+    .field { margin-bottom: 15px; }
+    .field label {
+      display: block; font-size: .71rem; text-transform: uppercase; letter-spacing: .06em;
+      font-weight: 600; color: var(--text-light); margin-bottom: 7px;
+    }
+    .field input {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--text); font-size: .93rem; outline: none;
+      transition: border-color .2s;
+    }
+    .field input:focus { border-color: var(--primary-l); }
+
+    .login-btn {
+      width: 100%; padding: 13px; border-radius: 10px; border: none;
+      background: var(--primary); color: white; font-size: .93rem; font-weight: 600;
+      cursor: pointer; margin-top: 6px;
+      transition: background .2s, transform .15s;
+    }
+    .login-btn:hover { background: var(--primary-l); transform: translateY(-1px); }
+    .login-btn:active { transform: translateY(0); }
+
+    .login-err {
+      display: none; margin-top: 12px; padding: 10px 14px; border-radius: 8px;
+      background: rgba(200,50,50,.1); border: 1px solid rgba(200,50,50,.22);
+      font-size: .81rem; color: #e08888;
+    }
+    .login-err.show { display: block; }
+
+    /* ── DASHBOARD ──────────────────────────────────────── */
+    #dashboard { display: none; }
+
+    .dash-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      height: 58px; padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dash-brand { display: flex; align-items: center; gap: 10px; }
+    .dash-brand img { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+    .dash-brand span { font-size: .88rem; font-weight: 600; color: var(--accent); }
+    .dash-nav-right { display: flex; align-items: center; gap: 14px; }
+    .dash-user { font-size: .78rem; color: var(--text-light); }
+    .logout-btn {
+      padding: 6px 13px; border-radius: 8px;
+      border: 1px solid var(--border); background: none;
+      color: var(--text-light); font-size: .78rem; cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .logout-btn:hover { color: var(--text); border-color: var(--border-hover); }
+
+    .dash-body { max-width: 1080px; margin: 0 auto; padding: 36px 24px 60px; }
+
+    .dash-header { margin-bottom: 28px; }
+    .dash-header h2 { font-size: 1.45rem; font-weight: 700; margin-bottom: 4px; }
+    .dash-header p { font-size: .83rem; color: var(--text-light); }
+
+    /* Status banner */
+    .status-banner {
+      display: flex; align-items: flex-start; gap: 13px;
+      background: var(--surface-alt); border: 1px solid var(--border);
+      border-left: 3px solid var(--primary-l);
+      border-radius: var(--radius); padding: 15px 18px;
+      margin-bottom: 36px; font-size: .83rem; color: var(--text-light); line-height: 1.55;
+    }
+    .status-banner i { font-size: 1.15rem; color: var(--primary-l); flex-shrink: 0; margin-top: 1px; }
+    .status-banner a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .status-banner a:hover { text-decoration: underline; }
+
+    /* Section label */
+    .section-label {
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .08em;
+      font-weight: 600; color: var(--text-light); margin-bottom: 14px;
+    }
+
+    /* Metric cards */
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 14px; margin-bottom: 36px;
+    }
+    .metric-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      text-decoration: none; display: block; color: inherit;
+      transition: border-color .2s, transform .2s;
+    }
+    .metric-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .metric-icon { font-size: 1.45rem; color: var(--primary-l); margin-bottom: 12px; }
+    .metric-label { font-size: .69rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; color: var(--text-light); margin-bottom: 8px; }
+    .metric-value { font-size: 1.55rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .metric-sub { font-size: .73rem; color: var(--text-light); }
+    .metric-cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 14px; font-size: .72rem; color: var(--accent); font-weight: 500;
+    }
+
+    /* Quick links */
+    .quick-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 12px; margin-bottom: 36px;
+    }
+    .quick-link {
+      background: var(--surface-alt); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 15px 16px;
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; transition: border-color .2s;
+    }
+    .quick-link:hover { border-color: var(--border-hover); }
+    .quick-link i { font-size: 1.25rem; color: var(--primary-l); flex-shrink: 0; }
+    .quick-link-name { font-size: .83rem; font-weight: 500; color: var(--text); }
+    .quick-link-desc { font-size: .71rem; color: var(--text-light); margin-top: 2px; }
+
+    /* Tracking info */
+    .tracking-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 24px;
+    }
+    .tracking-card p { font-size: .83rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.55; }
+    .tracking-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tracking-page {
+      font-size: .75rem; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 4px 10px; color: var(--accent); font-family: monospace;
+    }
+    .tracking-id { font-family: monospace; font-size: .88rem; color: var(--accent); background: var(--bg); padding: 4px 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ──────────────────────────────────────────────── -->
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-brand">
+      <img src="assets/logo.png" alt="Logo">
+      <div class="login-brand-text">
+        <h1>Apart Club San Pedro</h1>
+        <span>Panel de administración</span>
+      </div>
+    </div>
+    <h2 class="login-heading">Bienvenido</h2>
+    <p class="login-sub">Ingresá tus credenciales para ver las métricas</p>
+    <form id="loginForm" autocomplete="on">
+      <div class="field">
+        <label>Usuario</label>
+        <input type="text" id="inputUser" autocomplete="username" placeholder="Usuario" required>
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input type="password" id="inputPass" autocomplete="current-password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="login-btn">Ingresar</button>
+      <div class="login-err" id="loginErr">Usuario o contraseña incorrectos.</div>
+    </form>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ──────────────────────────────────────────── -->
+<div id="dashboard">
+  <nav class="dash-nav">
+    <div class="dash-brand">
+      <img src="assets/logo.png" alt="Logo">
+      <span>Admin · Apart Club San Pedro</span>
+    </div>
+    <div class="dash-nav-right">
+      <span class="dash-user" id="dashUser"></span>
+      <button class="logout-btn" id="logoutBtn">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <div class="dash-body">
+
+    <div class="dash-header">
+      <h2>Panel de métricas</h2>
+      <p>Seguí el rendimiento y la visibilidad del sitio web</p>
+    </div>
+
+    <div class="status-banner">
+      <i class="ph ph-info"></i>
+      <span>
+        El sitio aún no está publicado en un servidor — las métricas estarán disponibles desde el primer día que lo subas.
+        El código de seguimiento <strong>ya está instalado</strong> en todas las páginas y empezará a registrar datos automáticamente.
+        &nbsp;<a href="https://analytics.google.com" target="_blank" rel="noopener">Ir a Google Analytics →</a>
+      </span>
+    </div>
+
+    <p class="section-label">Métricas principales — últimos 28 días</p>
+    <div class="metrics-grid">
+      <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener" class="metric-card">
+        <div class="metric-icon"><i class="ph ph-users"></i></div>
+        <div class="metric-label">Usuarios activos</div>
+        <div class="metric-value">—</div>
+        <div class="metric-sub">Visitantes únicos</div>
+        <div class="metric-cta"><i class="ph ph-arrow-square-out"></i> Ver en Analytics</div>
+      </a>
+      <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener" class="metric-card">
+        <div class="metric-icon"><i class="ph ph-chart-line-up"></i></div>
+        <div class="metric-label">Sesiones</div>
+        <div class="metric-value">—</div>
+        <div class="metric-sub">Visitas totales al sitio</div>
+        <div class="metric-cta"><i class="ph ph-arrow-square-out"></i> Ver en Analytics</div>
+      </a>
+      <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener" class="metric-card">
+        <div class="metric-icon"><i class="ph ph-eye"></i></div>
+        <div class="metric-label">Páginas vistas</div>
+        <div class="metric-value">—</div>
+        <div class="metric-sub">Total de páginas cargadas</div>
+        <div class="metric-cta"><i class="ph ph-arrow-square-out"></i> Ver en Analytics</div>
+      </a>
+      <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener" class="metric-card">
+        <div class="metric-icon"><i class="ph ph-device-mobile"></i></div>
+        <div class="metric-label">Dispositivos</div>
+        <div class="metric-value">—</div>
+        <div class="metric-sub">Mobile vs escritorio</div>
+        <div class="metric-cta"><i class="ph ph-arrow-square-out"></i> Ver en Analytics</div>
+      </a>
+    </div>
+
+    <p class="section-label">Plataformas</p>
+    <div class="quick-grid">
+      <a href="https://analytics.google.com" target="_blank" rel="noopener" class="quick-link">
+        <i class="ph ph-chart-bar"></i>
+        <div>
+          <div class="quick-link-name">Google Analytics</div>
+          <div class="quick-link-desc">Dashboard completo de visitas</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/apartclubsanpedrorionaturaleza/" target="_blank" rel="noopener" class="quick-link">
+        <i class="ph ph-instagram-logo"></i>
+        <div>
+          <div class="quick-link-name">Instagram</div>
+          <div class="quick-link-desc">Perfil e Insights</div>
+        </div>
+      </a>
+      <a href="https://www.booking.com/hotel/ar/rio-naturaleza-y-relax.es-ar.html" target="_blank" rel="noopener" class="quick-link">
+        <i class="ph ph-bed"></i>
+        <div>
+          <div class="quick-link-name">Booking</div>
+          <div class="quick-link-desc">Reservas y estadísticas</div>
+        </div>
+      </a>
+      <a href="https://business.facebook.com/wa/manage/home/" target="_blank" rel="noopener" class="quick-link">
+        <i class="ph ph-whatsapp-logo"></i>
+        <div>
+          <div class="quick-link-name">WhatsApp Business</div>
+          <div class="quick-link-desc">Estadísticas de mensajes</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="section-label">Seguimiento instalado</p>
+    <div class="tracking-card">
+      <p>Google Analytics 4 está activo en todas las páginas del sitio. Empezará a registrar visitas, sesiones, páginas más vistas y origen del tráfico desde el momento en que el sitio se publique.</p>
+      <div class="tracking-pages">
+        <span class="tracking-page">index.html</span>
+        <span class="tracking-page">galeria.html</span>
+        <span class="tracking-page">preguntas-frecuentes.html</span>
+        <span class="tracking-page">contacto.html</span>
+      </div>
+      <p>ID de medición: <span class="tracking-id">G-655V3FZFTZ</span></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+<script>
+  const _u = 'UmlveW5hdHVyYWxlemFtZXRyaWNhcw==';
+  const _p = 'TWV0cmljYXNyaW95bmF0dXJhbGV6YQ==';
+
+  const loginScreen = document.getElementById('loginScreen');
+  const dashboard   = document.getElementById('dashboard');
+  const loginForm   = document.getElementById('loginForm');
+  const loginErr    = document.getElementById('loginErr');
+  const logoutBtn   = document.getElementById('logoutBtn');
+  const dashUser    = document.getElementById('dashUser');
+
+  if (sessionStorage.getItem('adminAuth') === '1') showDashboard();
+
+  loginForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const u = document.getElementById('inputUser').value;
+    const p = document.getElementById('inputPass').value;
+    if (u === atob(_u) && p === atob(_p)) {
+      sessionStorage.setItem('adminAuth', '1');
+      loginErr.classList.remove('show');
+      showDashboard();
+    } else {
+      loginErr.classList.add('show');
+      document.getElementById('inputPass').value = '';
+      document.getElementById('inputPass').focus();
+    }
+  });
+
+  logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem('adminAuth');
+    dashboard.style.display = 'none';
+    loginScreen.style.display = 'flex';
+    document.getElementById('inputUser').value = '';
+    document.getElementById('inputPass').value = '';
+  });
+
+  function showDashboard() {
+    loginScreen.style.display = 'none';
+    dashboard.style.display   = 'block';
+    dashUser.textContent = atob(_u);
+  }
+</script>
+</body>
+</html>

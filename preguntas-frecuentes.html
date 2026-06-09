@@ -7,6 +7,13 @@
   <meta name="description" content="Preguntas frecuentes sobre el Apart Club San Pedro — check-in, reservas, mascotas y más.">
   <link rel="icon" href="assets/logo.png">
   <link rel="stylesheet" href="css/styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-655V3FZFTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-655V3FZFTZ');
+  </script>
   <style>
     /* Contador para numeración */
     .faq-list {
@@ -86,6 +93,36 @@
     .faq-checkin-item i { font-size: 1.3rem; color: var(--primary); }
     .faq-checkin-item span { font-size: .95rem; color: var(--text-light); }
     .faq-checkin-item strong { display: block; color: var(--accent); font-size: 1.05rem; }
+
+    /* Animación de scroll para cada pregunta */
+    details.faq-item.fade-in {
+      transform: translateX(-28px) translateY(12px);
+      transition: opacity .55s cubic-bezier(.16,1,.3,1),
+                  transform .55s cubic-bezier(.16,1,.3,1),
+                  box-shadow .3s, border-left-color .3s, background .3s;
+    }
+    details.faq-item.fade-in.visible {
+      transform: translateX(0) translateY(0);
+    }
+
+    /* Stagger: cada pregunta aparece 70ms después de la anterior */
+    details.faq-item:nth-child(1)  { transition-delay: .00s; }
+    details.faq-item:nth-child(2)  { transition-delay: .07s; }
+    details.faq-item:nth-child(3)  { transition-delay: .14s; }
+    details.faq-item:nth-child(4)  { transition-delay: .21s; }
+    details.faq-item:nth-child(5)  { transition-delay: .28s; }
+    details.faq-item:nth-child(6)  { transition-delay: .35s; }
+    details.faq-item:nth-child(7)  { transition-delay: .42s; }
+    details.faq-item:nth-child(8)  { transition-delay: .49s; }
+    details.faq-item:nth-child(9)  { transition-delay: .56s; }
+    details.faq-item:nth-child(10) { transition-delay: .63s; }
+    details.faq-item:nth-child(11) { transition-delay: .70s; }
+    details.faq-item:nth-child(12) { transition-delay: .77s; }
+
+    /* Al hover/open, el delay ya cumplió su función — lo quitamos */
+    details.faq-item.visible {
+      transition-delay: 0s !important;
+    }
   </style>
 </head>
 <body>
@@ -116,6 +153,7 @@
     <div class="container">
       <div class="faq-list">
 
+        <!-- 1. Check-in -->
         <details class="faq-item fade-in">
           <summary>
             <span>¿Cuál es el horario de check-in y check-out?</span>
@@ -135,16 +173,7 @@
           </div>
         </details>
 
-        <details class="faq-item fade-in">
-          <summary>
-            <span>¿Cuántas personas entran por loft?</span>
-            <i class="ph ph-caret-down faq-chevron"></i>
-          </summary>
-          <div class="faq-body">
-            <p>Nuestros lofts tienen capacidad para <strong>2 a 6 personas</strong>. Ideales para parejas, familias o grupos de amigos.</p>
-          </div>
-        </details>
-
+        <!-- 2. Mascotas -->
         <details class="faq-item fade-in">
           <summary>
             <span>¿Aceptan mascotas?</span>
@@ -155,26 +184,7 @@
           </div>
         </details>
 
-        <details class="faq-item fade-in">
-          <summary>
-            <span>¿Cómo hago una reserva?</span>
-            <i class="ph ph-caret-down faq-chevron"></i>
-          </summary>
-          <div class="faq-body">
-            <p>Podés reservar por <strong>WhatsApp</strong>. Respondemos todos los días.</p>
-          </div>
-        </details>
-
-        <details class="faq-item fade-in">
-          <summary>
-            <span>¿Tienen promociones?</span>
-            <i class="ph ph-caret-down faq-chevron"></i>
-          </summary>
-          <div class="faq-body">
-            <p>Sí, ofrecemos tarifas especiales para estadías de <strong>lunes a jueves</strong>. No aplica en feriados. Consultanos el precio.</p>
-          </div>
-        </details>
-
+        <!-- 3. Estacionamiento -->
         <details class="faq-item fade-in">
           <summary>
             <span>¿El estacionamiento tiene costo adicional?</span>
@@ -185,36 +195,18 @@
           </div>
         </details>
 
+        <!-- 4. Pesca -->
         <details class="faq-item fade-in">
           <summary>
-            <span>¿Qué incluye la estadía?</span>
+            <span>¿Se puede pescar?</span>
             <i class="ph ph-caret-down faq-chevron"></i>
           </summary>
           <div class="faq-body">
-            <p>WiFi, TV + DirecTV, aire acondicionado frío/calor, estacionamiento, ropa de cama y toallas, artículos de aseo personal (shampoo, crema y jabón), infusiones (café, té, yerba y mate) y cocina completamente equipada con aceite, sal y condimentos.</p>
+            <p>Sí, y es una de las actividades favoritas de nuestros huéspedes. El complejo está ubicado sobre un <strong>brazo del río Paraná</strong>, lo que hace que la pesca sea tranquila y accesible en cualquier momento del día. Contamos con <strong>mojarreros</strong> disponibles para los huéspedes, desde donde podés pescar relajado con vista al río. También tenés acceso al <strong>muelle</strong> y a la <strong>bajada náutica</strong> para quienes quieran salir con su propio equipo.</p>
           </div>
         </details>
 
-        <details class="faq-item fade-in">
-          <summary>
-            <span>¿Puedo usar el predio completo?</span>
-            <i class="ph ph-caret-down faq-chevron"></i>
-          </summary>
-          <div class="faq-body">
-            <p>Sí, todo el predio es de uso libre para los huéspedes: <strong>pileta</strong>, playita a orillas del Río, botes laguneros, mojarreros para pesca recreativa, muelle, bajada náutica, canchas de fútbol y vóley, juegos para niños, laguna artificial y parque verde con fauna local.</p>
-          </div>
-        </details>
-
-        <details class="faq-item fade-in">
-          <summary>
-            <span>¿Tienen bajada náutica?</span>
-            <i class="ph ph-caret-down faq-chevron"></i>
-          </summary>
-          <div class="faq-body">
-            <p>Sí, contamos con <strong>muelle y bajada náutica</strong> para quienes quieran llegar o salir con su embarcación.</p>
-          </div>
-        </details>
-
+        <!-- 5. Restaurante -->
         <details class="faq-item fade-in">
           <summary>
             <span>¿Tienen restaurante?</span>
@@ -225,6 +217,40 @@
           </div>
         </details>
 
+        <!-- 6. Reserva -->
+        <details class="faq-item fade-in">
+          <summary>
+            <span>¿Cómo hago una reserva?</span>
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Podés reservar por <strong>WhatsApp</strong>. Respondemos todos los días.</p>
+          </div>
+        </details>
+
+        <!-- 7. Capacidad por loft -->
+        <details class="faq-item fade-in">
+          <summary>
+            <span>¿Cuántas personas entran por loft?</span>
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Nuestros lofts tienen capacidad para <strong>2 a 6 personas</strong>. Ideales para parejas, familias o grupos de amigos.</p>
+          </div>
+        </details>
+
+        <!-- 8. Qué incluye -->
+        <details class="faq-item fade-in">
+          <summary>
+            <span>¿Qué incluye la estadía?</span>
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>WiFi, TV + DirecTV, aire acondicionado frío/calor, estacionamiento, ropa de cama y toallas, artículos de aseo personal (shampoo, crema y jabón), secador de pelo, infusiones (café, té, yerba y mate) y cocina completamente equipada con aceite, sal y condimentos.</p>
+          </div>
+        </details>
+
+        <!-- 9. Ubicación -->
         <details class="faq-item fade-in">
           <summary>
             <span>¿Dónde están ubicados?</span>
@@ -235,6 +261,18 @@
           </div>
         </details>
 
+        <!-- 10. Predio completo -->
+        <details class="faq-item fade-in">
+          <summary>
+            <span>¿Puedo usar el predio completo?</span>
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, todo el predio es de uso libre para los huéspedes: <strong>pileta</strong>, playita a orillas del Río, botes laguneros, mojarreros para pesca recreativa, muelle, bajada náutica, canchas de fútbol y vóley, juegos para niños, laguna artificial y parque verde con fauna local.</p>
+          </div>
+        </details>
+
+        <!-- 11. Qué hacer en San Pedro -->
         <details class="faq-item fade-in">
           <summary>
             <span>¿Qué se puede hacer en San Pedro?</span>
@@ -242,6 +280,17 @@
           </summary>
           <div class="faq-body">
             <p>San Pedro tiene mucho para descubrir en familia o en pareja. Podés arrancar por la <strong>Costanera y las Barrancas</strong>, caminar sin apuro y disfrutar del río. Cerca, está el sitio histórico de <strong>Vuelta de Obligado</strong>, cargado de historia argentina. En el centro no te pierdas la <strong>Escalera de las Flores</strong>, la imponente <strong>Basílica de San Pedro</strong> y el <strong>Museo Paleontológico</strong>. Si viajás con chicos, el <strong>Laberinto de las Amalias</strong> es una parada obligada. Para comer bien, <strong>La Campiña de Mónica y César</strong> y <strong>El Sueño del Tano</strong> son clásicos del lugar. Y antes de volver, llevate unas <strong>ensaimadas</strong> — son un clásico sanpedrino que no podés dejar pasar.</p>
+          </div>
+        </details>
+
+        <!-- 12. Bajada náutica -->
+        <details class="faq-item fade-in">
+          <summary>
+            <span>¿Tienen bajada náutica?</span>
+            <i class="ph ph-caret-down faq-chevron"></i>
+          </summary>
+          <div class="faq-body">
+            <p>Sí, contamos con <strong>muelle y bajada náutica</strong> para quienes quieran llegar o salir con su embarcación.</p>
           </div>
         </details>
 
