@@ -878,6 +878,37 @@ section { overflow-x: hidden; }
 
 
 /* ─────────────────────────────
+   NOTEBOOK (769px – 1366px)
+───────────────────────────── */
+@media (min-width: 769px) and (max-width: 1366px) {
+
+  /* Sección — padding más ajustado para que entre más contenido */
+  .section { padding: 64px 0; }
+  .section-header { margin-bottom: 36px; }
+
+  /* Nuestros Lofts — feature list más compacto */
+  .loft-desc { font-size: .92rem; margin-bottom: 20px; line-height: 1.72; }
+  .feature-list { gap: 7px; }
+  .feature-list li { font-size: .84rem; padding: 8px 13px; }
+
+  /* Nuestro Predio — cards más chicos (aspect-ratio más ancho = menos alto) */
+  .predio-grid { gap: 12px; }
+  .predio-card { aspect-ratio: 3/2; }
+
+  /* Reseñas — texto más legible */
+  .reviews-widget { zoom: 0.80; }
+
+  /* Contacto — cajas más compactas */
+  .contact-grid { gap: 24px; }
+  .contact-card { padding: 26px 28px; }
+  .contact-card h2 { font-size: 1.25rem; margin-bottom: 14px; }
+  .contact-option { padding: 11px 0; gap: 12px; }
+  .map-card-header { padding: 18px 22px; }
+  .map-card-header h2 { font-size: 1.25rem; }
+  .map-card iframe { height: 370px; }
+}
+
+/* ─────────────────────────────
    PROMO PILL (flotante)
 ───────────────────────────── */
 .promo-pill {
